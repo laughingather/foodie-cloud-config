@@ -1,0 +1,11 @@
+# 数据库连接串 & 密码
+mariadb:
+  url: 'jdbc:mysql://localhost:3306/foodie-shop-dev?useSSL=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai'
+  password: '{cipher}451454333c464e06812cf97fb95e20842ddc72197125804900344913cbc23aaa'
+
+# 功能开关
+userservice:
+  registration:
+    disabled: true
+    
+# actuator
