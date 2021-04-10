@@ -1,5 +1,16 @@
 #数据源配置项相关
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  servlet:
+    multipart:
+      max-file-size: 512000  # 文件上传大小限制为最大500KB
+      max-request-size: 512000   # 请求大小限制为500KB
+  session:
+    store-type: redis
+  mvc:
+    dispatch-options-request: true
+    
   datasource: # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource # 数据源类型：HikariCP
     driver-class-name: com.mysql.jdbc.Driver # mysql驱动
