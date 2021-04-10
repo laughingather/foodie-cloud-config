@@ -1,5 +1,5 @@
 # 数据库连接串 & 密码
-mariadb:
+mysql:
   url: 'jdbc:mysql://localhost:3306/foodie-shop-dev?useSSL=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai'
   password: '{cipher}451454333c464e06812cf97fb95e20842ddc72197125804900344913cbc23aaa'
 
@@ -7,5 +7,11 @@ mariadb:
 userservice:
   registration:
     disabled: true
-    
-# actuator
+
+# redis配置
+redis:
+  database: 0
+  host: 'localhost'
+  port: 6379
+  password: 
+  timeout: 50000
