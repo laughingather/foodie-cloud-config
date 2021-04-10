@@ -15,3 +15,43 @@ redis:
   port: 6379
   password: 
   timeout: 50000
+  
+hystrix:
+  command:
+    default:    # 全局配置
+      fallback:
+        enabled: true   # 默认值
+      circuitBreaker:
+        enabled: true
+        errorThresholdPercentage: 50    # 超过50%错误开启熔断
+        requestVolumeThreshold: 5     # 5个请求之后才开始进行统计
+        sleepWindowInMilliseconds: 10000
+      execution:
+        timeout:
+          enabled: true   # 全局超时开启
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000   # 超时时间（毫秒为单位）
+            interruptOnTimeout: true    # 超时以后终止线程
+            interruptOnFutureCancel: true   # 取消的时候终止线程
+      requestCache:
+        enabled: true      # 是否开启缓存功能，默认开启
+      metrics:
+        rollingStats:
+          timeInMilliseconds: 20000    # 时间窗口统计
+
+    loginFail:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000
+
+############################################################
+#
+# fdfs 配置
+#
+############################################################
+fdfs:
+  connect-timeout: 300 # 连接的超时时间
+  so-timeout: 300  # 读取的超时时间
+  tracker-list: 49.235.23.59:22122
